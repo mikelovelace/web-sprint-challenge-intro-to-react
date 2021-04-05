@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 
 const App = () => {
@@ -8,6 +9,18 @@ const App = () => {
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
+
+  const [char, setChar] = useState('')
+
+  useEffect(() => {
+    axios.get('https://swapi.dev/api/people')
+    .then(response => {
+      setChar(response.data)
+    })
+    .catch(error => {
+      console.log(`An error has occured`, error)
+    })
+  }, [])
 
   return (
     <div className="App">
