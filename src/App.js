@@ -28,9 +28,9 @@ const App = () => {
     <>
       <HeaderTitle>STAR WARS CHARACTERS</HeaderTitle>
       <CharContainer>
-        {character.map((char) => {
+        {character.map((char, index) => {
           return (
-            <Character key={character.id} character={char} />
+            <Character key={index} character={char} />
           )
         })}
       </CharContainer>
