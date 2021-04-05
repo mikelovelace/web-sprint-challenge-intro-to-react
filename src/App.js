@@ -1,4 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react'; // import useEffect and useState
+import axios from 'axios';
+import Character from './components/Character'
+import { CharContainer, HeaderTitle } from "./components/Styles";
 import './App.css';
 
 const App = () => {
@@ -9,10 +12,29 @@ const App = () => {
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+  const [character, setCharacter] = useState([]) // setup state and initialize it to an empty array which will later be populated with data from the api
+
+  useEffect(() => {
+    axios.get('https://swapi.dev/api/people') // request data from this end point
+    .then(response => { 
+      setCharacter(response.data) // invoke setChar and pass in the recieved axios response
+    })
+    .catch(error => { 
+      console.log(`An error has occured`, error)// display an error if no response
+    })
+  }, []) // use empty dependency array to stop infinite loop
+
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <>
+      <HeaderTitle>STAR WARS CHARACTERS</HeaderTitle>
+      <CharContainer>
+        {character.map((char, index) => {
+          return (
+            <Character key={index} character={char} />
+          )
+        })}
+      </CharContainer>
+    </>
   );
 }
 

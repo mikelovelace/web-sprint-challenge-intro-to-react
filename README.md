@@ -31,12 +31,18 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
+    React is a Javascript library which allows one to create reusable and dynamic components. 
+    Information displayed to the user in a react application can change without having to reload the page.
 
-1. Describe component state.
+2. Describe component state.
+    It is the stored value for a component which allows one to create dynamic components which can change over time.
 
-1. Describe props.
+3. Describe props.
+    Props are used for storing data which can then be passed on to other components.
 
-1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+4. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+    Side effects are actions which occur outside the functions scope. Side effects can include DOM manipluation, API calls etc..
+    You use the useEffect hook to manipulate the way effects sync with changes in props and state.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -44,7 +50,7 @@ You are expected to be able to answer questions in these areas. Your responses c
 
 ### Task 1: Project Set Up
 
-- [ ] Create a forked copy of this project
+- [x] Create a forked copy of this project
 - [ ] Add your team lead as collaborator on Github
 - [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
